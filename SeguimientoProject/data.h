@@ -2,12 +2,19 @@
 #include "date.h"
 #include <string>
 
+using namespace std;
+
 class Data {
  public:
-  Data();
+  Data(int semester, int engLvl, string* subs);
+  int getSemester();
+  int getEngLvl();
+  string* getSubs();
+  Date getDate();
+  
  private:
   int semester;
   int engLvl;
-  string subs[];//Subjects: materias
-  date date;
-}
+  string* subs;//Subjects: materias
+  Date* date;
+};

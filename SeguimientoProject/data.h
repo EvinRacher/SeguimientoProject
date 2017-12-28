@@ -6,12 +6,15 @@ using namespace std;
 
 class Data {
  public:
-  Data(int semester, int engLvl, string subs[], Date* date);
+  Data();
   int getSemester();
   int getEngLvl();
   string getSub(int i);
-  Date getDate();
-  
+  Date* getDate();
+
+  void setSemester(int sem);
+  void setEngLvl(int lvl);
+  void setDate(Date* date);
  private:
   int semester;
   int engLvl;

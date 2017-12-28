@@ -1,23 +1,32 @@
 #include "data.h"
 #include "date.h"
-
+#include <iostream>
 using namespace std;
 
-Data::Data(int semester, int engLvl, string* subs, Date* date){
-  //No se pudo realizar el constructor por lista
-  this->semester = semester;
-  this->engLvl = engLvl;
-  subs = subs;
-  this->date = date;
-
+Data::Data(){
 }
 
 int Data::getSemester(){
   return semester;
 }
 
+void Data::setSemester(int sem){
+  semester = sem;
+}
+
 int Data::getEngLvl(){
   return engLvl;
 }
 
+void Data::setEngLvl(int lvl){
+  engLvl = lvl;
+}
+
+Date* Data::getDate(){
+  return date;
+}
+
+void Data::setDate(Date* date){
+  date = date;
+}
 

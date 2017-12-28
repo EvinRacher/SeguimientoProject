@@ -1,7 +1,8 @@
 #pragma once
 #include <set>
-#include "report.h"
+//#include "report.h"
 #include <iostream>
+#include "data.h"
 
 using namespace std;
 
@@ -9,7 +10,7 @@ using namespace std;
 class Console {
  public:
   Console();
+  void writeReport();
  private:
-  void writeConsole();
-  Report reporte;
+  int readAInt();
 };

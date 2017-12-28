@@ -1,7 +1,9 @@
 all: SP
 
-SP: console.o date.o data.o report.o
+SP: lan.o console.o date.o data.o report.o
 	g++ -g -o $@ $^
+
+lan.o: lan.cpp
 
 console.o: console.cpp console.h
 
@@ -12,4 +14,4 @@ data.o: data.cpp data.h
 report.o: report.cpp report.h
 
 clean:
-	rm -f *.o *~
+	rm -f *.o *~ SP

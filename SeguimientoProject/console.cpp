@@ -1,8 +1,10 @@
 #include "console.h"
 
 
-Console::Console(){
+int main(){
 
+
+  return 0;
 }
 
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "data.h"
 
-class Reporte {
+class Report {
  public:
-  Reporte();
-}
+  Report();
+};

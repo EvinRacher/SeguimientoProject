@@ -1,6 +1,6 @@
 #pragma once
 #include <set>
-#include "reporte.h"
+#include "report.h"
 #include <iostream>
 
 using namespace std;
@@ -12,4 +12,4 @@ class Console {
  private:
   void writeConsole();
   Report reporte;
-}
+};

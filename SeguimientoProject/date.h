@@ -1,21 +1,18 @@
 #pragma once
 #include <string>
-#include <utility>
 
 using namespace std;
 
-enum Month {
-  Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre
-  };
-
 class Date {
  public:
-  Date(int day, Month month, int year);
+  Date(int day, int month, int year);
   int getDay();
   int getMonth();
   int getYear();
+  string getMonthS();
 
 private:
-  int day,year;
-  Month month;
+  int day,year,month;
+  string monthS;
+  void setMonth(int month);
 };

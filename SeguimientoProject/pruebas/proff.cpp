@@ -10,15 +10,14 @@ g++ date.cpp proff.cpp -o <nombreDelEjecutable>
 
 **/
 
-#include "date.h"
+#include "../date.h"
 #include <iostream>
 
 using namespace std;
 
 int main(){
-  Month mes =static_cast<Month>(0);
-  Date fecha(7,mes,1999);
+  Date fecha(7,1,1999);
 
-  cout << fecha.getMonth()<<endl;
+  cout << fecha.getMonthS()<<endl;
   return 0;
 }

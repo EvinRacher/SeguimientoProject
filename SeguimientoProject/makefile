@@ -1,11 +1,13 @@
 all: SP
 
-SP: lan.o console.o date.o data.o report.o
+SP: lan.o parameter.o console.o date.o data.o report.o
 	g++ -g -o $@ $^
 
 lan.o: lan.cpp
 
 console.o: console.cpp console.h
+
+parameter.o: parameter.cpp parameter.h
 
 date.o: date.cpp date.h
 

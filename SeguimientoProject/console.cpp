@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "data.h"
 #include "date.h"
+#include "parameter.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int Console::readAInt(){
   return atoi(line.c_str());
 }
 void Console::writeReport(){
-  Date date;
+  /**  Date date;
   Date* apun = &date;
   cout << "Ingrese la fecha: " << endl;
   cout << "Día: ";
@@ -30,4 +31,10 @@ void Console::writeReport(){
   cout << "Ingrese el nivel de inglés actual: ";
   data.setEngLvl(readAInt());
   data.setDate(apun);
+  **/
+  Health health;
+  cout << "good"<< endl;
+  for(int i = 0; i < health.Parameter::getQSize(); i++){
+    health.ask(i);
+  }
 }

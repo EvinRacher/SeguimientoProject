@@ -20,7 +20,7 @@ class Parameter{
 class Health : public Parameter {
  public:
   Health();
-  void ask(int i);
+  string ask();
  private:
   void inicialize();
 };

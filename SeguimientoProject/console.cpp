@@ -34,7 +34,6 @@ void Console::writeReport(){
   **/
   Health health;
   cout << "good"<< endl;
-  for(int i = 0; i < health.Parameter::getQSize(); i++){
-    health.ask(i);
-  }
+  cout <<  health.ask() << endl;;
+  
 }

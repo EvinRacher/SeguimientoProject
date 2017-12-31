@@ -2,18 +2,17 @@
 #include <string>
 #include <vector>
 #include <iostream>
-
+#include <cstdio>
+#include <cctype>
 using namespace std;
 
 class Parameter{
  public:
   Parameter();
   int getQSize();
-  void ask();
+  string ask();
  protected:
-  // int size;
   vector<string> questions;
-  vector<string>::iterator it;
   void inicialize();
 };
 
@@ -24,43 +23,43 @@ class Health : public Parameter {
  private:
   void inicialize();
 };
-/**
+
 class Education : public Parameter{
 public:
-  Parameter();
-  void ask();
+  Education();
+  string ask();
  private:
   void inicialize();
 };
-
+/**
 class Feeding : public Parameter{
 public:
-  Parameter();
-  void ask();
+  Feeding();
+  string ask();
  private:
   void inicialize();
 };
 
 class Sleep : public Parameter{
 public:
-  Parameter();
-  void ask();
+  Sleep();
+  string ask();
  private:
   void inicialize();
 };
 
 class Hygiene : public Parameter{
 public:
-  Parameter();
-  void ask();
+  Hygiene();
+  string ask();
  private:
   void inicialize();
 };
 
 class Leisure : public Parameter{
 public:
-  Parameter();
-  void ask();
+  Leisure();
+  string ask();
  private:
   void inicialize();
 };

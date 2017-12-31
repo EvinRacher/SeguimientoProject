@@ -1,3 +1,4 @@
+CXXFLAGS=-Ddebug
 all: SP
 
 SP: lan.o parameter.o console.o date.o data.o report.o
@@ -16,4 +17,4 @@ data.o: data.cpp data.h
 report.o: report.cpp report.h
 
 clean:
-	rm -f *.o *~ SP
+	rm -f *.o *~ SP *#

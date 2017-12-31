@@ -4,11 +4,23 @@
 #include "data.h"
 #include "date.h"
 #include "parameter.h"
+#include <vector>
 
 using namespace std;
 
 Console::Console(){
-
+  Health health;
+  Education education;
+  parameters.push_back(health);
+  array[0] = health;
+  arr[0] = new Health();
+  parameters.push_back(education);
+  array[1] = education;
+  arr[1] = new Education();
+  /**parameters.push_back(Feeding feeding);
+  parameters.push_back(Sleep sleep);
+  parameters.push_back(Hygiene hygiene);
+  parameters.push_back(Leisure leisure);**/
 }
 int Console::readAInt(){
   string line;
@@ -31,9 +43,10 @@ void Console::writeReport(){
   cout << "Ingrese el nivel de inglés actual: ";
   data.setEngLvl(readAInt());
   data.setDate(apun);
-  **/
-  Health health;
-  cout << "good"<< endl;
-  cout <<  health.ask() << endl;;
-  
+**/
+  for(int i = 0; i < parameters.size(); i++){
+    cout <<  parameters[i].ask() << endl;
+    cout << array[i].ask() << endl;
+    cout << arr[i].ask() << endl;
+  }
 }

@@ -1,27 +1,32 @@
 #include "parameter.h"
 #include <vector>
 #include <iostream>
-
+#include <string>
 using namespace std;
 
-Parameter::Parameter(){
-  inicialize();
-}
+Parameter::Parameter(){}
 
 void Parameter::inicialize() {}
-
-void Parameter::ask() {}
 
 int Parameter::getQSize(){
   return questions.size();
 }
 
+string Parameter::ask(){
+  return "nada";
+}
 Health::Health(){
+  #ifdef debug
+  cout << "Constructor Salud" << endl;
+  #endif
   Parameter();
   inicialize();
 }
 
 void Health::inicialize(){
+  #ifdef debug
+  cout << "inicializando salud" << endl;
+  #endif
   questions.push_back("Ha acudido al médico estos dias?");
   questions.push_back("Motivo: (c = cita, m = consulta por molestias)");
   questions.push_back("Observaciones del médico: ");
@@ -53,6 +58,7 @@ string Health::ask(){
      temp = "el cual dió las siquientes observaciones: " + temp;
    }
    answer += " ha asistido al médico, "+temp+". ";
+   temp = "";
    if(pMs){
    cout << questions[3] << endl;
    cin >> r;
@@ -64,9 +70,7 @@ string Health::ask(){
      temp = ", las cuales fueron "+temp;
    }else{
      answer +="No p";
-     temp = ".";
    }
-   
    answer+="resentó molestias de salud"+temp+". ";
    }else{
      cout << questions[4] << endl;
@@ -88,3 +92,32 @@ string Health::ask(){
    answer += "a acudido al odontólogo"+temp+".";
    return answer;
 }
+
+Education::Education(){
+  #ifdef debug
+  cout << "Constructor Educacion" << endl;
+  #endif
+  Parameter();
+}
+
+void Education::inicialize(){
+  #ifdef debug
+  cout << "inicializando educación" << endl;
+  #endif
+}
+
+string Education::ask(){
+  string answer = "Educación: ";
+  return "preguntando educacion";
+}
+/**
+Feeding::Feeding(){
+  Parameter();
+}
+
+void Feeding::inicialize(){
+  #ifdef debug
+  cout << "inicializando alimentación" << endl;
+  #endif
+}
+**/

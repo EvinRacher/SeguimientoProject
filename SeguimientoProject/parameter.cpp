@@ -4,7 +4,9 @@
 #include <string>
 using namespace std;
 
-Parameter::Parameter(){}
+Parameter::Parameter(){
+  cout << "Constructor de parametros" << endl;
+}
 
 void Parameter::inicialize() {}
 

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cctype>
+
 using namespace std;
 
 class Parameter{

@@ -14,8 +14,12 @@ int Parameter::getQSize(){
   return questions.size();
 }
 
-string Parameter::ask(){
-  return "nada";
+string Parameter::ask(){}
+
+void Parameter::read(){
+  temp = "";
+  cin.ignore();
+  getline(cin, temp);
 }
 Health::Health(){
   #ifdef debug
@@ -40,7 +44,6 @@ void Health::inicialize(){
 
 string Health::ask(){
   string answer = "Salud: El joven ";
-  string temp = "";
   string movito = "";
   bool pMs = true;
   cout << questions[0] << endl;
@@ -55,28 +58,26 @@ string Health::ask(){
        pMs = false;
      }
      cout << questions[2] << endl;
-     cin.ignore();
-     getline(cin, temp);
-     temp = "el cual dió las siquientes observaciones: " + temp;
+     read();
+     temp = " ,el cual dió las siquientes observaciones: " + temp;
    }
-   answer += " ha asistido al médico, "+temp+". ";
+   answer += " ha asistido al médico"+temp+". ";
    temp = "";
    if(pMs){
-   cout << questions[3] << endl;
-   cin >> r;
-   if(r == 's'){
-     answer += "P";
-     cout << questions[4] << endl;
-     cin.ignore();
-     getline(cin, temp);
-     temp = ", las cuales fueron "+temp;
+     cout << questions[3] << endl;
+     cin >> r;
+     if(r == 's'){
+       answer += "P";
+       cout << questions[4] << endl;
+       read();
+       temp = ", las cuales fueron "+temp;
+     }else{
+       answer +="No p";
+     }
+     answer+="resentó molestias de salud"+temp+". ";
    }else{
-     answer +="No p";
-   }
-   answer+="resentó molestias de salud"+temp+". ";
-   }else{
      cout << questions[4] << endl;
-     getline(cin, temp);
+     read();
      answer+= " Las molestias por las que consultó fueron: "+temp+". ";
      temp = "";
    }
@@ -86,8 +87,7 @@ string Health::ask(){
      answer+= "No h";
    }else{
      cout << questions[6] << endl;
-     cin.ignore();
-     getline(cin, temp);
+     read();
      temp = ", el cual dió las siquientes observaciones: " + temp;
      answer+= "H";
    }
@@ -100,17 +100,45 @@ Education::Education(){
   cout << "Constructor Educacion" << endl;
   #endif
   Parameter();
+  inicialize();
 }
 
 void Education::inicialize(){
   #ifdef debug
   cout << "inicializando educación" << endl;
   #endif
+  questions.push_back("Está en vacaiones?");
+  questions.push_back("Ha tenido exámenes?");
+  questions.push_back("Exámenes: ");
+  questions.push_back("Observaciones sobre semilleros: ");
 }
 
 string Education::ask(){
   string answer = "Educación: ";
-  return "preguntando educacion";
+  char r;
+  string aux;
+  cout << questions[0] << endl;
+  cin >> r;
+  if (r == 's'){
+    answer+= "El joven se encuentra en vaciones por lo que no tiene compromisos académicos.";
+  }else{
+    cout << questions[1] << endl;
+    cin >> r;
+    aux = "a tenido exámenes";
+    if (r == 's') {
+      cout << questions[2] << endl;
+      read();
+      answer+= "H"+aux+ " en las siguientes materias: "+ temp+".";
+    }else{
+      answer+="No h"+aux+".";
+    }
+    aux = "";
+    temp = "";
+    cout << questions[3] << endl;
+    read;
+    answer+=temp;
+  }
+  return answer;
 }
 /**
 Feeding::Feeding(){

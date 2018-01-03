@@ -7,6 +7,8 @@ Report::Report(){
   cout << "Construtor reporte" << endl;
 }
 
-void Report::ask(){
-  health.ask();
+string Report::ask(){
+  string answer = health.ask();
+  answer += education.ask();
+  return answer;
 }

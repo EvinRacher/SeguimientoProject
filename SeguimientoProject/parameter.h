@@ -15,6 +15,8 @@ class Parameter{
  protected:
   vector<string> questions;
   void inicialize();
+  void read();
+  string temp;
 };
 
 class Health : public Parameter {

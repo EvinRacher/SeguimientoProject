@@ -35,5 +35,5 @@ void Console::writeReport(){
 **/
   Report report;
 
-  report.ask();
+  cout << report.ask();
 }

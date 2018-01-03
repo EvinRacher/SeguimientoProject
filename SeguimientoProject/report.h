@@ -5,7 +5,8 @@
 class Report {
  public:
   Report();
-  void ask();
+  string ask();
  private:
   Health health;
+  Education education;
 };

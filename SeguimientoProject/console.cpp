@@ -9,7 +9,6 @@
 using namespace std;
 
 Console::Console(){
-  cout << "Constructor consola" << endl;
 }
 int Console::readAInt(){
   string line;
@@ -17,7 +16,7 @@ int Console::readAInt(){
   return atoi(line.c_str());
 }
 void Console::writeReport(){
-  /**  Date date;
+  /** Date date;
   Date* apun = &date;
   cout << "Ingrese la fecha: " << endl;
   cout << "Día: ";
@@ -27,11 +26,14 @@ void Console::writeReport(){
   cout << "Año: ";
   date.setYear(readAInt());
   Data data;
+  Data* dat = &data;
   cout << "Ingrese el semestre actual: ";
   data.setSemester(readAInt());
   cout << "Ingrese el nivel de inglés actual: ";
   data.setEngLvl(readAInt());
   data.setDate(apun);
+  
+  Report report(data);
 **/
   Report report;
 

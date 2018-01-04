@@ -15,7 +15,7 @@ class Parameter{
  protected:
   vector<string> questions;
   void inicialize();
-  void read();
+  string read(bool lim);
   string temp;
 };
 
@@ -34,7 +34,7 @@ public:
  private:
   void inicialize();
 };
-/**
+
 class Feeding : public Parameter{
 public:
   Feeding();
@@ -66,4 +66,3 @@ public:
  private:
   void inicialize();
 };
-**/

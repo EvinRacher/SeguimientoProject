@@ -30,7 +30,7 @@ class Health : public Parameter {
 class Education : public Parameter{
 public:
   Education();
-  string ask();
+  string ask(bool holidays);
  private:
   void inicialize();
 };

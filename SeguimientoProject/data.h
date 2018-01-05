@@ -11,13 +11,16 @@ class Data {
   int getEngLvl();
   string getSub(int i);
   Date* getDate();
+  bool getHolidays();
 
   void setSemester(int sem);
   void setEngLvl(int lvl);
   void setDate(Date* date);
+  void setHolidays(bool holi);
  private:
   int semester;
   int engLvl;
   string subs[];//Subjects: materias
   Date* date;
+  bool holidays;
 };

@@ -16,7 +16,8 @@ int Console::readAInt(){
   return atoi(line.c_str());
 }
 void Console::writeReport(){
-  /** Date date;
+  char r;
+  Date date;
   Date* apun = &date;
   cout << "Ingrese la fecha: " << endl;
   cout << "Día: ";
@@ -27,15 +28,19 @@ void Console::writeReport(){
   date.setYear(readAInt());
   Data data;
   Data* dat = &data;
+  cout << "Esta en vacaciones?" << endl;
+  cin >> r;
+  if (r == 's'){
+    data.setHolidays(true);
+  }else{
   cout << "Ingrese el semestre actual: ";
   data.setSemester(readAInt());
   cout << "Ingrese el nivel de inglés actual: ";
   data.setEngLvl(readAInt());
+  }
   data.setDate(apun);
   
   Report report(data);
-**/
-  Report report;
-
+  
   cout << report.ask();
 }

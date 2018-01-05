@@ -71,7 +71,6 @@ void Health::inicialize(){
 }
 
 void Education::inicialize(){
-  questions.push_back("Está en vacaciones?");
   questions.push_back("Ha tenido exámenes?");
   questions.push_back("Exámenes: ");
   questions.push_back("Observaciones sobre semilleros: ");
@@ -80,21 +79,22 @@ void Education::inicialize(){
 void Feeding::inicialize(){
   questions.push_back("Rechaza algún alimento?");
   questions.push_back("Qué alimento rechaza?");
-  questions.push_back("Observaciones: ");
+  questions.push_back("Observaciones sobre la alimentación: ");
 }
 
 void Sleep::inicialize(){
   questions.push_back("Hora de acostarse?");
   questions.push_back("Hora de levantarse?");
-  questions.push_back("Observaciones: ");
+  questions.push_back("Observaciones sobre el sueño: ");
 }
 
 void Hygiene::inicialize(){
-  questions.push_back("Observaciones: ");
+  questions.push_back("Observaciones sobre la higiene: ");
 }
 
 void Leisure::inicialize(){
-  questions.push_back("Actividades fisicas que ha realizado?");
+  questions.push_back("Ha realizafo actividad física? f = si incluye futbol o pingpong");
+  questions.push_back("Actividades fisicas que ha realizado:");
   questions.push_back("Libro que está leyendo: ");
   questions.push_back("Observaciones sobre semilleros: ");
 }
@@ -152,20 +152,18 @@ string Health::ask(){
   return answer;
 }
 
-string Education::ask(){
+string Education::ask(bool holidays){
   string answer = "\n\nEducación: ";
   char r;
   string aux;
-  cout << questions[0] << endl;
-  cin >> r;
-  if (r == 's'){
-    answer+= "El joven se encuentra en vaciones por lo que no tiene compromisos académicos.";
+  if (holidays){
+    answer+= "El joven se encuentra en vaciciones por lo que no tiene compromisos académicos.";
   }else{
-    cout << questions[1] << endl;
+    cout << questions[0] << endl;
     cin >> r;
     aux = "a tenido exámenes";
     if (r == 's') {
-      cout << questions[2] << endl;
+      cout << questions[1] << endl;
       read(true);
       answer+= "H"+aux+ " en las siguientes materias: "+ temp+".";
     }else{
@@ -173,7 +171,7 @@ string Education::ask(){
     }
     aux = "";
     temp = "";
-    cout << questions[3] << endl;
+    cout << questions[2] << endl;
     read(true);
     answer+=temp;
   }
@@ -187,7 +185,9 @@ string Feeding::ask(){
   cin >> r;
   if(r == 's'){
     cout << questions[1] << endl;
-    answer += read(true)+ ".";
+    answer +="Rechaza "+read(true)+ ".";
+  }else{
+    answer += "No rechaza ningún alimento. ";
   }
   cout << questions[2] << endl;
   answer += read(false) + ".";
@@ -215,11 +215,21 @@ string Hygiene::ask(){
 
 string Leisure::ask(){
   string answer = "\n\nRecreación: ";
+  char r;
   cout << questions[0] << endl;
-  answer += "Ha jugado "+read(false) + ". ";
-  cout << questions[1] << endl;
-  answer += "Está leyendo "+read(false)+". ";
+  cin >> r;
+  if(r == 'f'){
+    cout << questions[1] << endl;
+    answer += "Ha jugado "+read(false) + ". ";
+  }else if (r == 's'){
+    cout << questions[1] << endl;
+    answer += read(false)+". ";
+  }else {
+    answer += "No ha realizado ninguna actividad física últimamente. ";
+  }
   cout << questions[2] << endl;
+  answer += "Está leyendo "+read(false)+". ";
+  cout << questions[3] << endl;
   answer += "En cuanto a los semilleros, "+read(false)+". ";
   return answer;
 }

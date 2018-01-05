@@ -30,3 +30,10 @@ void Data::setDate(Date* date){
   date = date;
 }
 
+bool Data::getHolidays(){
+  return holidays;
+}
+
+void Data::setHolidays(bool holi){
+  holidays = holi;
+}

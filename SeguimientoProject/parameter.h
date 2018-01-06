@@ -9,7 +9,7 @@ using namespace std;
 
 class Parameter{
  public:
-  Parameter();
+  Parameter(Data data);
   int getQSize();
   string ask();
  protected:
@@ -17,6 +17,7 @@ class Parameter{
   void inicialize();
   string read(bool lim);
   string temp;
+  Data data;
 };
 
 class Health : public Parameter {

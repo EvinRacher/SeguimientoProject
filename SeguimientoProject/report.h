@@ -8,11 +8,11 @@ class Report {
   Report(Data dat);
   string ask();
  private:
-  Health health;
-  Education education;
-  Feeding feeding;
-  Sleep sleep;
-  Hygiene hygiene;
-  Leisure leisure;
+  Health health(data);
+  Education education(data);
+  Feeding feeding(data);
+  Sleep sleep(data);
+  Hygiene hygiene(data);
+  Leisure leisure(data);
   Data data;
 };

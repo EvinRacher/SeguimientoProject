@@ -26,8 +26,8 @@ Date* Data::getDate(){
   return date;
 }
 
-void Data::setDate(Date* date){
-  date = date;
+void Data::setDate(Date* dat){
+  date = dat;
 }
 
 bool Data::getHolidays(){

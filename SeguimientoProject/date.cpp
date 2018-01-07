@@ -1,10 +1,10 @@
 #include "date.h"
 Date::Date(){}
 
-Date::Date(int day, int month, int year):
-  day(day),
-  month(month),
-  year(year)
+Date::Date(int d, int m, int y):
+  day(d),
+  month(m),
+  year(y)
 {
   setMonth();
 }
@@ -13,25 +13,25 @@ int Date::getDay(){
   return day;
 }
 
-void Date::setDay(int day){
-  day = day;
+void Date::setDay(int d){
+  day = d;
 }
 
 int Date::getYear(){
   return year;
 }
 
-void Date::setYear(int year){
-  year = year ;
+void Date::setYear(int y){
+  year = y;
 }
 
 int Date::getMonth(){
   return month;
 }
 
-void Date::setMonth(int month){
+void Date::setMonth(int m){
+  month = m;
   setMonth();
-  month = month;
 }
 
 string Date::getMonthS(){

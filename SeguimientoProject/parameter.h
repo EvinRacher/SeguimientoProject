@@ -4,12 +4,14 @@
 #include <iostream>
 #include <cstdio>
 #include <cctype>
+#include "data.h"
 
 using namespace std;
 
 class Parameter{
  public:
-  Parameter(Data data);
+  Parameter(Data dat);
+  Parameter();
   int getQSize();
   string ask();
  protected:
@@ -23,6 +25,7 @@ class Parameter{
 class Health : public Parameter {
  public:
   Health();
+  Health(Data data);
   string ask();
  private:
   void inicialize();
@@ -31,7 +34,8 @@ class Health : public Parameter {
 class Education : public Parameter{
 public:
   Education();
-  string ask(bool holidays);
+  Education(Data data);
+  string ask();
  private:
   void inicialize();
 };
@@ -39,6 +43,7 @@ public:
 class Feeding : public Parameter{
 public:
   Feeding();
+  Feeding(Data data);
   string ask();
  private:
   void inicialize();
@@ -47,6 +52,7 @@ public:
 class Sleep : public Parameter{
 public:
   Sleep();
+  Sleep(Data data);
   string ask();
  private:
   void inicialize();
@@ -55,6 +61,7 @@ public:
 class Hygiene : public Parameter{
 public:
   Hygiene();
+  Hygiene(Data data);
   string ask();
  private:
   void inicialize();
@@ -63,6 +70,7 @@ public:
 class Leisure : public Parameter{
 public:
   Leisure();
+  Leisure(Data data);
   string ask();
  private:
   void inicialize();

@@ -15,7 +15,7 @@ class Data {
 
   void setSemester(int sem);
   void setEngLvl(int lvl);
-  void setDate(Date* date);
+  void setDate(Date* dat);
   void setHolidays(bool holi);
  private:
   int semester;

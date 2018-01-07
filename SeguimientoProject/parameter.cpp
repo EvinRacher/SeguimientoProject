@@ -7,6 +7,10 @@ using namespace std;
 Parameter::Parameter(){
 }
 
+Parameter::Parameter(Data dat){
+  data = dat;
+}
+
 void Parameter::inicialize() {}
 
 int Parameter::getQSize(){
@@ -56,6 +60,42 @@ Parameter()
 
 Leisure::Leisure() :
 Parameter()
+{
+  inicialize();
+}
+
+Health::Health(Data data):
+Parameter(data)
+{
+  inicialize();
+}
+
+Education::Education(Data data) :
+  Parameter(data)
+{
+  inicialize();
+}
+
+Feeding::Feeding(Data data):
+Parameter(data)
+{
+  inicialize();
+}
+
+Sleep::Sleep(Data data):
+Parameter(data)
+{
+  inicialize();
+}
+
+Hygiene::Hygiene(Data data):
+Parameter(data)
+{
+  inicialize();
+}
+
+Leisure::Leisure(Data data) :
+Parameter(data)
 {
   inicialize();
 }
@@ -152,13 +192,18 @@ string Health::ask(){
   return answer;
 }
 
-string Education::ask(bool holidays){
+string Education::ask(){
   string answer = "\n\nEducación: ";
   char r;
   string aux;
-  if (holidays){
-    answer+= "El joven se encuentra en vaciciones por lo que no tiene compromisos académicos.";
+  if (data.getHolidays()){
+    answer += "El joven se encuentra en vacaciones por lo que no tiene compromisos académicos.";
   }else{
+    answer += "Se encuentra en el semestre ";
+    answer += data.getSemester();
+    answer += " de ingeniería de sistemas y en el nivel ";
+    answer += data.getEngLvl();
+    answer += " Inglés. ";
     cout << questions[0] << endl;
     cin >> r;
     aux = "a tenido exámenes";
@@ -216,16 +261,18 @@ string Hygiene::ask(){
 string Leisure::ask(){
   string answer = "\n\nRecreación: ";
   char r;
+  bool cinq = false;
   cout << questions[0] << endl;
   cin >> r;
   if(r == 'f'){
     cout << questions[1] << endl;
-    answer += "Ha jugado "+read(false) + ". ";
+    answer += "Ha jugado "+read(true) + ". ";
   }else if (r == 's'){
     cout << questions[1] << endl;
-    answer += read(false)+". ";
+    answer += read(true)+". ";
   }else {
     answer += "No ha realizado ninguna actividad física últimamente. ";
+    cinq = true;
   }
   cout << questions[2] << endl;
   answer += "Está leyendo "+read(false)+". ";

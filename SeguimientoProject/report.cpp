@@ -30,9 +30,9 @@ string Report::consDate(){
 }
 
 string Report::ask(){
-  string res = consDate()+".\n\n"+ health.ask();
+  string res = consDate()+".\n\n";//+ health.ask();
 	       // De la siguiente forma llama primero a education.ask(): return health.ask()+education.ask()+feeding.ask()+sleep.ask()+hygiene.ask()+leisure.ask();
-	       /**res += education.ask();/**
+  res += education.ask();/**
   res += feeding.ask();
   res += sleep.ask();
   res += hygiene.ask();

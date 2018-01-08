@@ -205,6 +205,7 @@ string Education::ask(){
   string answer = "\n\nEducación: ";
   char r;
   string aux;
+  bool cinq = false;
   if (data.getHolidays()){
     answer += "El joven se encuentra en vacaciones por lo que no tiene compromisos académicos.";
   }else{
@@ -221,11 +222,12 @@ string Education::ask(){
       answer+= "H"+aux+ " en las siguientes materias: "+ temp+".";
     }else{
       answer+="No h"+aux+".";
+      cinq = true;
     }
     aux = "";
     temp = "";
     cout << questions[2] << endl;
-    read(true);
+    read(cinq);
     answer+=" "+temp+".";
   }
   return answer;

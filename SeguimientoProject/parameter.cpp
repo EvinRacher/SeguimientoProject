@@ -147,7 +147,7 @@ void Leisure::inicialize(){
 
 string Health::ask(){
   string answer = "Salud: El joven ";
-  string movito = "";
+  string aux = "";
   bool pMs = true;
   cout << questions[0] << endl;
   char r;
@@ -159,12 +159,15 @@ string Health::ask(){
     cin >> r;
     if(r == 'm'){
       pMs = false;
+      aux = " debido a que presentaba algunas molestias. El médico ";
+    }else{
+      aux = " ya que tenia cita de revisión, en la cual se";
     }
     cout << questions[2] << endl;
     read(true);
-    temp = " ,el cual dió las siquientes observaciones: " + temp;
+    temp = " dió las siguientes observaciones: " + temp;
   }
-  answer += " ha asistido al médico"+temp+". ";
+  answer += " ha asistido al médico"+aux+temp+". ";
   temp = "";
   if(pMs){
     cout << questions[3] << endl;
@@ -180,8 +183,8 @@ string Health::ask(){
     answer+="resentó molestias de salud"+temp+". ";
   }else{
     cout << questions[4] << endl;
-    read(true);
-    answer+= " Las molestias por las que consultó fueron: "+temp+". ";
+    read(false);
+    answer+= "Las molestias por las que consultó fueron: "+temp+". ";
     temp = "";
   }
   cout << questions[5] << endl;

@@ -37,12 +37,15 @@ void Console::writeReport(){
   data.setSemester(readAInt());
   /** Error con cout << "semester: "+ data.getSemester() << endl; : porque literal suma lo que hay ahí ejemplo: cout << "Hola"+3<<endl;**/
   cout << "Ingrese el nivel de inglés actual: ";
-  data.setEngLvl(readAInt());
+  string eng;
+  cin.ignore();
+  getline(cin,eng);
+  data.setEngLvl(eng);
   data.setHolidays(false);
   }
   data.setDate(apun);
   
   Report report(data);
   
-  cout << report.ask();
+  cout << report.ask() << endl;
 }

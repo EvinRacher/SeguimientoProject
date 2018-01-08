@@ -1,7 +1,11 @@
-#include "parameter.h"
+#include <sstream>
+#include <iostream>
 #include <vector>
 #include <iostream>
 #include <string>
+#include "parameter.h"
+#include "data.h"
+
 using namespace std;
 
 Parameter::Parameter(){
@@ -27,6 +31,8 @@ string Parameter::read(bool lim){
   getline(cin, temp);
   return temp;
 }
+
+
 
 Health::Health():
 Parameter()
@@ -199,11 +205,10 @@ string Education::ask(){
   if (data.getHolidays()){
     answer += "El joven se encuentra en vacaciones por lo que no tiene compromisos académicos.";
   }else{
-    answer += "Se encuentra en el semestre ";
-    answer += data.getSemester();
-    answer += " de ingeniería de sistemas y en el nivel ";
-    answer += data.getEngLvl();
-    answer += " Inglés. ";
+    answer += "Se encuentra en el semestre "
+      + convertToString(data.getSemester())
+      + " de ingeniería de sistemas y en el nivel "
+      + data.getEngLvl() + " Inglés. ";
     cout << questions[0] << endl;
     cin >> r;
     aux = "a tenido exámenes";
@@ -218,7 +223,7 @@ string Education::ask(){
     temp = "";
     cout << questions[2] << endl;
     read(true);
-    answer+=temp;
+    answer+=" "+temp+".";
   }
   return answer;
 }

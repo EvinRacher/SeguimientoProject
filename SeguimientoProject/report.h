@@ -15,4 +15,5 @@ class Report {
   Hygiene hygiene;
   Leisure leisure;
   Data data;
+  string consDate();
 };

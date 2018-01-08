@@ -1,6 +1,9 @@
 #include "data.h"
 #include "date.h"
 #include <iostream>
+#include <sstream>
+#include <string>
+
 using namespace std;
 
 Data::Data(){
@@ -14,11 +17,11 @@ void Data::setSemester(int sem){
   semester = sem;
 }
 
-int Data::getEngLvl(){
+string Data::getEngLvl(){
   return engLvl;
 }
 
-void Data::setEngLvl(int lvl){
+void Data::setEngLvl(string lvl){
   engLvl = lvl;
 }
 
@@ -36,4 +39,12 @@ bool Data::getHolidays(){
 
 void Data::setHolidays(bool holi){
   holidays = holi;
+}
+
+string convertToString(int i){
+  stringstream ss;
+  ss << i;
+  string str;
+  ss >> str;
+  return str;
 }

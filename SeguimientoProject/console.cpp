@@ -10,11 +10,14 @@ using namespace std;
 
 Console::Console(){
 }
+
 int Console::readAInt(){
   string line;
   cin >> line;
   return atoi(line.c_str());
 }
+
+
 void Console::writeReport(){
   char r;
   Date date;

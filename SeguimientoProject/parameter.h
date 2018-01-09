@@ -20,6 +20,7 @@ class Parameter{
   string read(bool lim);
   string temp;
   Data data;
+  string observation(string msg, bool cinq);
 };
 
 class Health : public Parameter {

@@ -16,4 +16,5 @@ class Report {
   Leisure leisure;
   Data data;
   string consDate();
+  void setHr(char l);
 };

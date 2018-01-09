@@ -32,7 +32,14 @@ string Parameter::read(bool lim){
   return temp;
 }
 
-
+string Parameter::observation(string msg, bool cinq){
+  cout << msg << endl;
+  string line = read(cinq);
+  if(line == "n"){
+    return "";
+  }else
+    return line + ".";
+}
 
 Health::Health():
 Parameter()
@@ -129,20 +136,18 @@ void Feeding::inicialize(){
 }
 
 void Sleep::inicialize(){
-  questions.push_back("Hora de acostarse?");
-  questions.push_back("Hora de levantarse?");
   questions.push_back("Observaciones sobre el sueño: ");
 }
 
 void Hygiene::inicialize(){
+  questions.push_back("Ha recibido dotación?");
   questions.push_back("Observaciones sobre la higiene: ");
 }
 
 void Leisure::inicialize(){
-  questions.push_back("Ha realizafo actividad física? f = si incluye futbol o pingpong");
+  questions.push_back("Ha realizado actividad física? f = si incluye futbol o pingpong");
   questions.push_back("Actividades fisicas que ha realizado:");
   questions.push_back("Libro que está leyendo: ");
-  questions.push_back("Observaciones sobre semilleros: ");
 }
 
 string Health::ask(){
@@ -181,6 +186,7 @@ string Health::ask(){
       answer +="No p";
     }
     answer+="resentó molestias de salud"+temp+". ";
+    temp = "";
   }else{
     cout << questions[4] << endl;
     read(false);
@@ -227,8 +233,7 @@ string Education::ask(){
     aux = "";
     temp = "";
     cout << questions[2] << endl;
-    read(cinq);
-    answer+=" "+temp+".";
+    answer += "En cuanto a los semilleros, "+read(cinq)+".";
   }
   return answer;
 }
@@ -236,35 +241,54 @@ string Education::ask(){
 string Feeding::ask(){
   string answer = "\n\nAlimentación: ";
   char r;
-  cout << questions[0] << endl;
-  cin >> r;
-  if(r == 's'){
-    cout << questions[1] << endl;
-    answer +="Rechaza "+read(true)+ ".";
-  }else{
-    answer += "No rechaza ningún alimento. ";
+  int des = 1;
+  bool cinq = false;
+  if(data.getHolidays()){
+    des = 3;
   }
-  cout << questions[2] << endl;
-  answer += read(false) + ".";
+  answer += " Desayuna a las "
+    + convertToString(data.getHr('l'))
+    + ":30 am (aprox) después de levantarse; "
+    + " Almuerza al medio día y come a las "
+    + convertToString(data.getHr('a')-des)
+    + ":00 pm (aprox). ";
+  if(!data.getHolidays()){
+    answer += "Como está estudiando, lleva almuerzo a la universidad y además recibe refigerio en la universidad. ";
+  }
+    cout << questions[0] << endl;
+    cin >> r;
+    if(r == 's'){
+      cout << questions[1] << endl;
+      answer +="Rechaza "+read(true)+ ".";
+    }else{
+      answer += "No rechaza ningún alimento. ";
+      cinq = true;
+    }
+
+  answer += observation(questions[2], cinq);
   return answer;
 }
 
 string Sleep::ask(){
   string answer = "\n\nSueño: ";
   char r;
-  cout << questions[0] << endl;
-  answer+="El joven se acuesta a las "+read(false)+" y se levanta a las ";
-  cout << questions[1] << endl;
-  answer+= read(false)+". ";
-  cout << questions[2] << endl;
-  answer+= read(false)+".";
+  answer += "El joven se acuesta a las "
+    + convertToString(data.getHr('a'))
+    + ":00 pm (aprox) y se levanta a las "
+    + convertToString(data.getHr('l')) + ":00 am. ";
+  answer+= observation(questions[0], false);
   return answer;
 }
 
 string Hygiene::ask(){
-  string answer = "\n\nHigiene: ";
+  string answer = "\n\nHigiene: El joven es organizado, se cepilla tres veces al día y posee todos los artículos de aseo personal básico. ";
+  char r;
   cout << questions[0] << endl;
-  answer+=read(false)+".";
+  cin >> r;
+  if(r == 's'){
+    answer += "Ha recibido datación. ";
+  }
+  answer+=observation(questions[1], true);
   return answer;
 }
 
@@ -276,17 +300,15 @@ string Leisure::ask(){
   cin >> r;
   if(r == 'f'){
     cout << questions[1] << endl;
-    answer += "Ha jugado "+read(true) + ". ";
+    answer += "Ha jugado con sus amigos "+read(true) + ". ";
   }else if (r == 's'){
     cout << questions[1] << endl;
-    answer += read(true)+". ";
+    answer += read(true)+" .";
   }else {
     answer += "No ha realizado ninguna actividad física últimamente. ";
     cinq = true;
   }
   cout << questions[2] << endl;
   answer += "Está leyendo "+read(false)+". ";
-  cout << questions[3] << endl;
-  answer += "En cuanto a los semilleros, "+read(false)+". ";
   return answer;
 }

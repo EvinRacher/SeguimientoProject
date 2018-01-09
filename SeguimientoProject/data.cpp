@@ -41,6 +41,22 @@ void Data::setHolidays(bool holi){
   holidays = holi;
 }
 
+int Data::getHr(char hr){
+  if (hr == 'l'){
+    return hLev;
+  }else if(hr == 'a'){
+    return hAco;
+  }
+}
+
+void Data::setHr(int hr, char h){
+  if (h == 'l'){
+    hLev = hr;
+  }else if(h == 'a'){
+    hAco = hr;
+  }
+}
+
 string convertToString(int i){
   stringstream ss;
   ss << i;

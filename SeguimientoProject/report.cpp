@@ -77,7 +77,7 @@ string Report::consDate(){
 }
 
 string Report::ask(){
-  string res = consDate()+".\n\n";
+  string res = "Fecha: "+consDate()+".\n\n";
   res +=  health.ask();
   // De la siguiente forma llama primero a education.ask(): return health.ask()+education.ask()+feeding.ask()+sleep.ask()+hygiene.ask()+leisure.ask();
   res += education.ask();

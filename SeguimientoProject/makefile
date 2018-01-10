@@ -17,4 +17,7 @@ data.o: data.cpp data.h
 report.o: report.cpp report.h
 
 clean:
+	rm -f *.o *~ *#
+
+cleand:
 	rm -f *.o *~ SP *#

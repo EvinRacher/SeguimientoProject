@@ -6,6 +6,8 @@
 #include "parameter.h"
 #include <vector>
 #include "report.h"
+#include <fstream>
+
 using namespace std;
 
 Console::Console(){
@@ -38,7 +40,8 @@ void Console::writeReport(){
   }else{
   cout << "Ingrese el semestre actual: ";
   data.setSemester(readAInt());
-  /** Error con cout << "semester: "+ data.getSemester() << endl; : porque literal suma lo que hay ahí ejemplo: cout << "Hola"+3<<endl;**/
+  /**  Error con cout << "semester: "+ data.getSemester() << endl; : porque literal suma lo que hay ahí ejemplo: cout << "Hola"+3<<endl;
+   **/
   cout << "Ingrese el nivel de inglés actual: ";
   string eng;
   cin.ignore();
@@ -47,8 +50,11 @@ void Console::writeReport(){
   data.setHolidays(false);
   }
   data.setDate(apun);
-  
   Report report(data);
+  ofstream fs("../Seguimientos/segumientoProff.docx");
+  string msg = report.ask();
+  fs << msg;
+  fs.close();
+  //  cout << msg << endl;
   
-  cout << report.ask() << endl;
 }

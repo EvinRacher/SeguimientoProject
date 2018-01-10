@@ -215,6 +215,7 @@ string Education::ask(){
   if (data.getHolidays()){
     answer += "El joven se encuentra en vacaciones por lo que no tiene compromisos académicos.";
   }else{
+     cout << "Educación" << endl;
     answer += "Se encuentra en el semestre "
       + convertToString(data.getSemester())
       + " de ingeniería de sistemas y en el nivel "
@@ -239,13 +240,16 @@ string Education::ask(){
 }
 
 string Feeding::ask(){
+  cout << "Alimentación" << endl;
   string answer = "\n\nAlimentación: ";
   char r;
   int des = 1;
   bool cinq = false;
   if(data.getHolidays()){
     des = 3;
+    answer += "Como está en vacaciones, consume sus alimentos en la casa. ";
   }
+  answer += "LLeva su comida a la universidad, donde además recibe refigerio por parte del departamento de beneficios y compensaciones. ";
   answer += " Desayuna a las "
     + convertToString(data.getHr('l'))
     + ":30 am (aprox) después de levantarse; "
@@ -270,6 +274,7 @@ string Feeding::ask(){
 }
 
 string Sleep::ask(){
+  cout << "Sueño" << endl;
   string answer = "\n\nSueño: ";
   char r;
   answer += "El joven se acuesta a las "
@@ -281,6 +286,7 @@ string Sleep::ask(){
 }
 
 string Hygiene::ask(){
+  cout << "Higiene" << endl;
   string answer = "\n\nHigiene: El joven es organizado, se cepilla tres veces al día y posee todos los artículos de aseo personal básico. ";
   char r;
   cout << questions[0] << endl;
@@ -293,6 +299,7 @@ string Hygiene::ask(){
 }
 
 string Leisure::ask(){
+  cout << "Recreación" << endl;
   string answer = "\n\nRecreación: ";
   char r;
   bool cinq = false;
